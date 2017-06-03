@@ -39,11 +39,11 @@ export default class LbProject extends Component {
     );
   }
 }
-const {HEIGHT, WIDTH} = Dimensions.get('window');
+const WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex:1,
+    width:WIDTH,
     borderWidth:1,
     borderColor:'#000000',
     backgroundColor:'red',
