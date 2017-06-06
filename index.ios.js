@@ -11,10 +11,10 @@ import {
   Text,
   View,
   Dimensions,
-
+  ListView,
 } from 'react-native';
 
-import  Message  from './Message';
+import  ListViewBasic  from './ListViewBasic';
 
 export default class LbProject extends Component {
   render() {
@@ -26,7 +26,7 @@ export default class LbProject extends Component {
           <View style={{flex:1}}><Text style={{textAlign:'center', color:'white'}}>Add</Text></View>
         </View>
         <View style={styles.content}>
-          <Message pic="PIC" title="simors" msg="wodkfjdkfj" time="00:20" />
+          <ListViewBasic/>
         </View>
         <View style={styles.toolbar}>
 
