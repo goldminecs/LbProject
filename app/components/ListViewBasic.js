@@ -49,25 +49,3 @@ export  default class ListViewBasics extends Component {
   }
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    //width:150,
-    //height:150,
-    flexDirection:'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderWidth:1,
-    borderColor:'#F1F1F1',
-  },
-  pic: {
-    flex:1,
-  },
-  msg: {
-    flex:5,
-  },
-  time: {
-    flex:1,
-  },
-});
