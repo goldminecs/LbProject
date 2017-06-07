@@ -11,7 +11,11 @@ import {
 import  ListViewBasic  from './ListViewBasic';
 
 
-export default class LbProject extends Component {
+export default class Home extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return (
       <View style={styles.container}>

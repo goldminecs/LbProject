@@ -1,4 +1,8 @@
-export default function messageReducer(state, action) {
+import {Message} from '../models/MessageModels';
+
+const initStat = Message();
+
+export default function messageReducer(state = initStat, action) {
   switch (action.type) {
     case '1':
       return handle1(state, action)
