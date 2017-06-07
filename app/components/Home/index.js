@@ -6,12 +6,15 @@ import {
   View,
   Dimensions,
   ListView,
-} from 'react-native';
+} from 'react-native'
+import {Actions, Scene, Switch, ActionConst, Modal} from 'react-native-router-flux'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import {fetchTitle} from '../../action/homeAction'
+import  ListViewBasic  from './ListViewBasic'
 
-import  ListViewBasic  from './ListViewBasic';
 
-
-export default class Home extends Component {
+class Home extends Component {
   constructor(props){
     super(props);
   }
@@ -26,18 +29,41 @@ export default class Home extends Component {
         </View>
         <View style={styles.content}>
           <ListViewBasic/>
+          <Text>{this.props.title}</Text>
         </View>
         <View style={styles.toolbar}>
 
-          <View style={styles.btn}><Text style={{textAlign:'center', color:'#555555'}}>微信</Text></View>
+          <View onclick style={styles.btn}><Text style={{textAlign:'center', color:'#555555'}}>微信</Text></View>
           <View style={styles.btn}><Text style={{textAlign:'center', color:'#555555'}}>通讯录</Text></View>
           <View style={styles.btn}><Text style={{textAlign:'center', color:'#555555'}}>发现</Text></View>
-          <View style={styles.btn}><Text style={{textAlign:'center', color:'#555555'}}>我</Text></View>
+          <View style={styles.btn}><Text onPress={()=>this.onPressMe()} style={{textAlign:'center', color:'#555555'}}>我</Text></View>
         </View>
       </View>
     );
   }
+
+  onPressMe(){
+    console.log("Press me.");
+    this.props.fetchTitle({type: 10});
+    return (
+      Actions.ME({type: 'reset'})
+    );
+  }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    title: state.HOME.title,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchTitle,
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
+
+
 const WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
@@ -60,7 +86,7 @@ const styles = StyleSheet.create({
     width:WIDTH,
     borderWidth:1,
     borderColor:'#000000',
-    backgroundColor:'red',
+    backgroundColor:'grey',
 
   },
   toolbar: {
@@ -79,3 +105,4 @@ const styles = StyleSheet.create({
   },
 
 });
+

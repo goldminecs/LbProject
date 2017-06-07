@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux'
 
-import configReducer from './configReducer'
-import messageReducer from './messageReducer'
+import homeReducer from './homeReducer'
+import meReducer from './meReducer'
 
 const rootReducers = combineReducers({
-  CONFIG: configReducer,
-  MESSAGE: messageReducer,
+  HOME: homeReducer,
+  ME: meReducer,
 })
 
 const rootReducersWrapper = (state, action) => {
