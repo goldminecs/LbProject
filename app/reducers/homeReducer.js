@@ -1,6 +1,6 @@
-import {HomeModel} from '../models/HomeModels';
+import {Home} from '../models/HomeModels';
 
-const initStat = HomeModel();
+const initStat = Home();
 
 export default function homeReducer(state = initStat, action) {
   switch (action.type) {

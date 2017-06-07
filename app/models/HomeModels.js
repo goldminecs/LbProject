@@ -3,9 +3,9 @@
  */
 import {Map, List, Record} from 'immutable'
 
-export const HomeModel = Record({
+export const Home = Record({
   title:'',
-}, 'Config')
+}, 'Home')
 
 
 
